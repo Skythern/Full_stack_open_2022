@@ -1,0 +1,24 @@
+title Untitled
+
+selain->palvelin: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+palvelin->selain: statuskoodi 302 - redirect
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+palvelin->selain: HTML -koodi
+selain-> palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+palvelin->selain: main.cc
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+palvelin->selain: main.js
+
+note over selain:
+selain suoraittaa js-koodia ja pyytää JSON datan palvelimelta
+end note
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+palvelin->selain: [{"content": "Jesus is a muslim","date": "2022-11-14T12:02:42.760Z"},...]
+
+note over selain:
+selain suorittaa tapahtumankäisttelijän joka renderöi muistiinpanot näytölle
+end note
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/favicon.ico
+palvelin->selain: favicon.ico
